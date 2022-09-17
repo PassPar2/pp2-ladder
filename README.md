@@ -20,14 +20,21 @@ Config.EnableAttach = true
 Add to qb-core/shared/item.lua
 
 ```
-	-- ladder
-	['ladder'] 			 		 = {['name'] = 'ladder', 			  	['label'] = 'Ladder', 			['weight'] = 5000, 		['type'] = 'item', 		['image'] = 'ladder.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A wooden ladder'},
+-- ladder
+['ladder'] = {['name'] = 'ladder', ['label'] = 'Ladder', ['weight'] = 5000, ['type'] = 'item', ['image'] = 'ladder.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A wooden ladder'},
 ```
 
 Add `ladder.png` to your inventory images folder
 
 # preview
-Coming soon
+<p align="left">
+<img src="https://i.imgur.com/8ggUdxu.jpeg" alt="pp2-ladder-1" width="400"/>
+<img src="https://i.imgur.com/7lce6bf.jpeg" alt="pp2-ladder-2" width="400"/>
+<img src="https://i.imgur.com/SzaXBgK.jpeg" alt="pp2-ladder-3" width="400"/>
+<img src="https://i.imgur.com/PXLYOuw.jpeg" alt="pp2-ladder-4" width="400"/>
+<img src="https://i.imgur.com/GHzQ7CR.jpeg" alt="pp2-ladder-5" width="400"/>
+<img src="https://i.imgur.com/6uyCJAZ.png" alt="pp2-ladder-5" width="200"/>
+</p>
 
 # Ladder stream
 The stream folder is optional, the one used here is from https://github.com/aymannajim/esx_ladders
