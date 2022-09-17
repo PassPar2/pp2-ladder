@@ -1,9 +1,13 @@
 # pp2-ladder
-This is an adaptation of https://github.com/aymannajim/esx_ladders for qb-core
+This is an adaptation of https://github.com/aymannajim/esx_ladders for qb-core.
 
 This script add a ladder item for players to use.
 
-Only 1 ladder can be storred in inventory
+Only 1 ladder can be storred in inventory.
+
+The ladder follow gravity :D (not fixed).
+
+It can be used as a complement to https://github.com/MT-Scripts/mt-stealcopper ;)
 
 You can make the ladder visible by changing config : 
 ```
