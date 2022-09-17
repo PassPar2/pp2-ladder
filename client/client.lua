@@ -1,4 +1,8 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+
+local attachedLadder = false
+local model = 'prop_byard_ladder01'
+
 local ClimbingVectors = {
   up = {
       {vector3(0.0, -0.45, -1.1), 'laddersbase', 'get_on_bottom_front_stand_high'},
@@ -25,12 +29,6 @@ local ClimbingVectors = {
       {vector3(0.0, -0.3, -0.7), 'laddersbase', 'climb_down'},
       {vector3(0.0, -0.45, -1.1), 'laddersbase', 'get_off_bottom_front_stand'}
   }
-}
-
-local attachedLadder = false
-
-local models = {
-  'prop_byard_ladder01',
 }
 
 local function adjustLadder(Ladder)
@@ -119,7 +117,6 @@ local function climbLadder(Ladder, Direction)
   ClearPedTasksImmediately(PlayerPed)
   FreezeEntityPosition(PlayerPed, false)
   SetEntityCollision(Ladder, true, true)
-
 end
 
 RegisterNetEvent('pp2-ladder:client:climbLadder', function(args)
@@ -186,7 +183,7 @@ end)
 
 RegisterNetEvent('pp2-ladder:client:spawnLadder', function()
   local PlayerPed = PlayerPedId()
-  local Ladder = CreateObjectNoOffset(GetHashKey('prop_byard_ladder01'), GetOffsetFromEntityInWorldCoords(PlayerPed, 0.0, 1.0, 0.9), true, false, false)
+  local Ladder = CreateObjectNoOffset(GetHashKey(model), GetOffsetFromEntityInWorldCoords(PlayerPed, 0.0, 1.0, 0.9), true, false, false)
   local PlayerRot = GetEntityRotation(PlayerPed)
   SetEntityRotation(Ladder, vector3(PlayerRot.x - 10.0, PlayerRot.y, PlayerRot.z))
   local LadderNetID = ObjToNet(Ladder)
@@ -195,7 +192,7 @@ RegisterNetEvent('pp2-ladder:client:spawnLadder', function()
   adjustLadder(Ladder)
 end)
 
-exports['qb-target']:AddTargetModel(models, {
+exports['qb-target']:AddTargetModel(model, {
 	options = {
 		{
       label = 'Ladder options',
@@ -216,7 +213,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
 		if Config.EnableAttach then
       local hasItem = QBCore.Functions.HasItem('ladder')
       if hasItem and not attachedLadder then
-        local Ladder = CreateObjectNoOffset(GetHashKey('prop_byard_ladder01'), GetOffsetFromEntityInWorldCoords(PlayerPed, 0.0, -1.0, 0.9), true, false, false)
+        local Ladder = CreateObjectNoOffset(GetHashKey(model), GetOffsetFromEntityInWorldCoords(PlayerPed, 0.0, -1.0, 0.9), true, false, false)
         AttachEntityToEntity(Ladder, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 24818), 0.50, -0.25, 0.0, 10.0, 90.0, 0.0, false, false, false, false, 2, true)
         attachedLadder = Ladder
       elseif not hasItem and attachedLadder then
